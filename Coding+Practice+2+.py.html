@@ -1,0 +1,367 @@
+
+# coding: utf-8
+
+# (1) Does this code run without error? If so, what does it produce? If not, explain why.  
+# 
+# 
+# 
+
+# In[1]:
+
+
+x = [1, 2, 3]
+y = 'bootcamp'
+z = x + y
+
+
+# The code has a run-time error because you cannot concatenate a string and a list. 
+
+# (2) For the same x and y as the previous question: What function tells us what type they are? What function tells us how many elements they contain?
+
+# The type() function can tell us what type each of them are and the len() function can tell us how many elements they contain. 
+
+# (3) What type is each expression? How can you tell?
+
+# In[ ]:
+
+
+2 #Integer 
+'2' #String 
+2.0 #Float
+"2.0" #String 
+2 > 1 #Boolean 
+'Itamar' > 'Chase' #Boolean
+[1, 2] #List 
+(1, 2) #Tuple 
+{1: 'one', 2: 'two'} #Dictionary 
+
+
+# For each case, you can tell by either identifying them directly or using the type() function if unsure. 
+
+# (4) What value does each of these comparisons have?
+
+# In[8]:
+
+
+1 >= 0 
+
+
+# In[9]:
+
+
+1 >= 1 
+
+
+# In[10]:
+
+
+1 > 1 
+
+
+# In[11]:
+
+
+1 == 1 
+
+
+# In[12]:
+
+
+1 == 1.0
+
+
+# In[13]:
+
+
+'Spencer' == "Spencer"
+
+
+# In[14]:
+
+
+2**3 > 3**2 
+
+
+# In[15]:
+
+
+1 >= 0 or 1 <= 2
+
+
+# In[16]:
+
+
+1 >= 0 and 1 <= 2
+
+
+# Noteworthy to consider the last two cases. When using "or", if you have at least one true boolean, Python will respond with True; contrast this with "and",where both arguments must hold true.  
+
+# (5) Does this code run without error? If so, what does it produce? If not, how would you fix it? 
+
+# In[18]:
+
+
+if 2 > 1:
+    print('Yes, 2 is still greater than 1')
+
+
+# The code has no error and prints the given function since the argument is true. 
+
+# (6) What is the result of running this code? Why?
+
+# In[19]:
+
+
+if True: 
+    print('on the one hand')
+    
+else: print('but on the other hand')
+
+
+# Python automatically prints the if statement rather than the else statement because we have not specified a prior argument for Python to evaluate and thus the default is shown to be True.
+
+# (7) What is the result of running this code?
+
+# In[22]:
+
+
+cond = True 
+if cond: 
+    x = 'Chase'
+else: 
+    x = 'Dave'
+print(x)
+
+
+# (8) Suppose we have two lists, x = [1, 2, 3, 4] and y = ['x', 'y', 'z']. Adapt the code below to determine which has more elements: 
+# 
+
+# In[23]:
+
+
+x = [1, 2, 3, 4]
+y = ['x', 'y', 'z']
+
+if len(x) > len(y): 
+    print ('x has more')
+else: 
+    print('y has more')
+
+
+# (9) Explain in words what slicing does. 
+
+# Slicing allows us to access the individual elements in a string or list and manipulate them by specifying the item number in brackets. Note: Python starts forward counting with the number zero. Why? Beats me. 
+
+# (10) How would you extract ("slice") the first element (the integer 1) from the list x below? The last element? All but the last element?
+# 
+# x = [1, ,2, 3, 4, 5]
+
+# In[27]:
+
+
+x = [1 ,2, 3, 4, 5]
+print(x[0])
+print(x[-1])
+print(x[1:-1])
+
+
+# (11) Use slicing to extract each word from 
+# 
+# sentence = 'This is a sentence; please slice it.' 
+
+# In[38]:
+
+
+sentence = 'This is a sentence; please slice it.'
+
+print(sentence[0:4])
+print(sentence[5:7])
+print(sentence[8:9])
+print(sentence[10:18])
+print(sentence[20:26])
+print(sentence[27:32])
+print(sentence[33:35])
+
+
+# (12) Consider the list 
+# 
+# x = [1, 2, "a", 'b', "fast", 'slow', 3, "Raghu", 'Liuren', 10] 
+# 
+# a. How would you slice out the first item? The last item?
+# 
+# b. How would you slice out the items from 'b' to 3 inclusive?
+
+# In[57]:
+
+
+x = [1, 2, "a", 'b', "fast", 'slow', 3, "Raghu", 'Liuren', 10]
+
+print(x[1:])
+print(x[:-1])
+print(x[0], x[-1])
+
+
+# (13) Using the same list x, write a loop that prints every element on a new line.
+
+# In[58]:
+
+
+x = [1, 2, "a", 'b', "fast", 'slow', 3, "Raghu", 'Liuren', 10]
+
+for items in x: 
+    print(items)
+
+
+# (14) *Challenging.* Using the same list x, write a loop that prints every element of type str.
+
+# In[62]:
+
+
+for items in x: 
+    if type(items) == str:
+        print(items)
+    
+
+
+# (15) Use Spyder's help to find out what the range function does. How would you describe range(3, 12, 2)? Verify by converting to a list with list(range(3, 12, 2)).
+# 
+
+# In[63]:
+
+
+get_ipython().magic('pinfo range')
+
+
+# Based on Spyder's description, the range function returns an object that produces a sequence of integers that are inclusive of start and exclusive of stop in the format range(start, stop[, step]). Start defaults at 0 and step specifies the increment of the integers. 
+# 
+# Hence, range(3, 12, 2) should give us a list of numbers from 3 ascending in increments of 2 to 11. Let's verify:  
+
+# In[67]:
+
+
+list(range(3, 12, 2))
+
+
+# Looks good! 
+
+# (16) *Challenging.* Write a loop that sums the integers from zero to thirty that are multiples of three: 3, 6, etc. 
+
+# In[88]:
+
+
+x = range(0, 31, 3)
+print(list(x)) # Just to make sure we have all our numbers.
+
+total = 0
+for num in x: 
+    total = total + num
+    
+print(total)
+
+
+# *Easier way to calculate the sum of x:* 
+
+# In[86]:
+
+
+x = range(0, 31, 3)
+print(sum(x)) 
+
+
+# (17) Define a function pocket_change() that takes four integers as inputs (numbers of pennies, nickels, dimes, and quarters in your pocket) and returns a floating point number (their dollar value). Run your program with the input (1, 2, 3, 4). *Bonus (optional):* Report the value with a dollar sign. 
+
+# In[97]:
+
+
+def pocket_change(p,n,d,q):
+    value = 0.01*p + 0.05*n + 0.1*d + 0.25*q
+    print("$" + format(value,".2f"))
+    
+pocket_change(1, 2, 3, 4)
+
+
+# (18) *Challenging.* Write a function notsix() that takes a list of integers and returns a (shorter) list of only those that do not begin with a 6. Test it on the list [1234, 6783, 6, 4321, 9876]. 
+
+# In[120]:
+
+
+def notsix(x): 
+    answer = []
+    for num in x: 
+        if str(num)[0] != "6":
+            answer.append(num)
+    print(answer)
+            
+print(notsix([1234, 6783, 6, 4321, 9876]))
+
+
+# (19) *Challenging.* Explain what this code does. 
+
+# In[102]:
+
+
+old_list = [1234, 6783, 6, 4321, 9876]
+new_list = [x for x in old_list if str(x)[0] != "6"]
+print(new_list)
+
+
+# This code uses list comprehension to accomplish the same task we attempted in Question 19 by converting values in old_list to a string and using slicing to determine if the first character is a 6 and removing them from new_list. 
+
+# (20) Consider the Python object 
+# 
+# z = {1: 'one', 2: 'two', 3: 'three'} 
+# 
+# a. What kind of object is z? What is its length?
+# 
+# b. Which components are keys? Which are values? 
+# 
+# c. How would I get the value associated with the key 2?
+# 
+# d. Use Spyder's help facilities to figure out what z.keys() does. Ditto z.values(). Try them to verify. 
+# 
+# e. What does list(z.keys()) do? 
+# 
+# f. What does list(z.values()) do?
+
+# In[109]:
+
+
+z = {1: 'one', 2: 'two', 3: 'three'}
+z[2]
+
+
+# In[127]:
+
+
+z.keys()
+
+
+# In[128]:
+
+
+z.values()
+
+
+# In[129]:
+
+
+list(z.keys())
+
+
+# In[130]:
+
+
+list(z.values()) 
+
+
+# a. z is a dictionary with length 3. 
+# 
+# b. The keys are the integers 1, 2, and 3. The values are the strings 'one', 'two', and 'three'. 
+# 
+# c. You can type z[2] to get the value associated with the key 2. 
+# 
+# d. The z.keys() function gives us a list of the keys that are within the dictionary z. z.values() gives us the corresponding values in z. 
+# 
+# e. list(z.keys()) gives us the keys in z as a list. 
+# 
+# f. list(z.values()) gives us the values as z in a list. 
